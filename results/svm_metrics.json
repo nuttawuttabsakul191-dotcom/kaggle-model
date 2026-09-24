@@ -52,7 +52,7 @@
     "cv_best_f1": 0.5358885699362076,
     "cv_best_pr_auc": 0.5036384204252978,
     "cv_best_recall": 0.9182270846482923,
-    "grid_search_seconds": 11.347500800038688,
+    "grid_search_seconds": 11.31301059992984,
     "train_rows": 20000,
     "test_rows": 5000,
     "input_feature_count": 18,
