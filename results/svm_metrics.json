@@ -41,5 +41,34 @@
         }
     },
     "roc_auc": 0.943173337113034,
-    "pr_auc": 0.45756743034232356
+    "pr_auc": 0.45756743034232356,
+    "model_name": "Support Vector Machine",
+    "selection_metric": "F1-score of Died class",
+    "best_params": {
+        "C": 1.0,
+        "gamma": "scale",
+        "kernel": "rbf"
+    },
+    "cv_best_f1": 0.5358885699362076,
+    "cv_best_pr_auc": 0.5036384204252978,
+    "cv_best_recall": 0.9182270846482923,
+    "grid_search_seconds": 11.347500800038688,
+    "train_rows": 20000,
+    "test_rows": 5000,
+    "input_feature_count": 18,
+    "encoded_feature_count": 51,
+    "support_vectors_count": {
+        "Survived": 3343,
+        "Died": 544,
+        "Total": 3887
+    },
+    "duplicate_rows_audit": 11992,
+    "dummy_baseline": {
+        "accuracy": 0.9266,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "roc_auc": 0.5,
+        "pr_auc": 0.0734
+    }
 }
