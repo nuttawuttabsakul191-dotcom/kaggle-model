@@ -50,14 +50,17 @@ kaggle-model/
 │   └── COVID19_Patient_Risk_Analysis.csv
 ├── notebooks/
 │   ├── decision_tree.ipynb
-│   └── svm.ipynb
+│   ├── svm.ipynb
+│   └── model_comparison.ipynb
 ├── src/
 │   ├── __init__.py
 │   ├── preprocess.py
 │   └── evaluate.py
 ├── results/
 │   ├── decision_tree_metrics.json
-│   └── svm_metrics.json
+│   ├── svm_metrics.json
+│   ├── model_comparison_summary.json
+│   └── figures/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
@@ -148,6 +151,12 @@ code notebooks/decision_tree.ipynb
 code notebooks/svm.ipynb
 ```
 
+Notebook สำหรับเปรียบเทียบผลลัพธ์สุดท้าย:
+
+```powershell
+code notebooks/model_comparison.ipynb
+```
+
 ที่มุมขวาบนของ Notebook ให้กด **Select Kernel** แล้วเลือก `Python (kaggle-model)` จากนั้นกด **Run All**
 
 ## Git workflow
@@ -183,10 +192,14 @@ compare: branch ของผู้พัฒนา
 
 | Model | Accuracy | Precision | Recall | F1-score | ROC-AUC | PR-AUC |
 |---|---:|---:|---:|---:|---:|---:|
-| Decision Tree | รอสรุปผล | รอสรุปผล | รอสรุปผล | รอสรุปผล | รอสรุปผล | รอสรุปผล |
-| SVM | รอสรุปผล | รอสรุปผล | รอสรุปผล | รอสรุปผล | รอสรุปผล | รอสรุปผล |
+| Decision Tree | 87.28% | 35.04% | 85.83% | 49.76% | 88.80% | **48.50%** |
+| **SVM** | 87.16% | **36.01%** | **96.46%** | **52.44%** | **94.32%** | 45.76% |
 
-ผลสรุปจะมาจาก test set ชุดเดียวกัน หลังจาก Notebook ของทั้งสองโมเดลถูกรันด้วยเงื่อนไขเดียวกัน
+ผลทั้งหมดมาจาก test set ชุดเดียวกันจำนวน 5,000 แถว หลังจากปรับพารามิเตอร์ด้วยข้อมูล training set หรือ cross-validation เสร็จแล้ว โดยไม่มีการนำ test set ไปใช้ปรับพารามิเตอร์
+
+ตามเกณฑ์หลัก F1-score ของคลาส `Died` เลือก **SVM** เพราะมี F1-score 52.44% และ Recall 96.46% สูงกว่า Decision Tree ทำให้พลาดผู้เสียชีวิตจริง 13 คน เทียบกับ 52 คนของ Decision Tree อย่างไรก็ตาม Decision Tree มี PR-AUC สูงกว่าและมี False Positive น้อยกว่า จึงไม่ควรสรุปว่า SVM ดีกว่าในทุกด้าน
+
+รายละเอียด ตาราง และกราฟภาษาไทยอยู่ใน `notebooks/model_comparison.ipynb`
 
 ## สถานะโปรเจกต์
 
@@ -195,7 +208,8 @@ compare: branch ของผู้พัฒนา
 - [x] สร้าง evaluation ส่วนกลาง
 - [x] กำหนดโมเดลและ metrics ที่ใช้เปรียบเทียบ
 - [x] สร้าง Decision Tree Notebook
-- [ ] สร้าง SVM Notebook จากโค้ด SVM ที่พัฒนาไว้
-- [ ] ตรวจสอบและรัน Notebook ทั้งสองไฟล์
-- [ ] เปรียบเทียบผลลัพธ์ของสองโมเดล
-- [ ] สรุปว่าโมเดลใดเหมาะสมกว่า
+- [x] สร้าง SVM Notebook
+- [x] สร้าง Notebook เปรียบเทียบโมเดล
+- [x] เปรียบเทียบผลลัพธ์ของสองโมเดลบน test set ชุดเดียวกัน
+- [x] สรุปว่า SVM เหมาะสมกว่าตามเกณฑ์ F1-score ของคลาส Died
+- [ ] แก้ไขและตรวจสอบ SVM Notebook ให้ Run All ผ่านครบทุกเซลล์
