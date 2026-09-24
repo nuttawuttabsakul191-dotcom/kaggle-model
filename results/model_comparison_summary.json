@@ -1,0 +1,47 @@
+{
+    "primary_metric": "F1-score of Died class",
+    "selected_model": "SVM",
+    "test_set_used_for_final_evaluation_only": true,
+    "fair_comparison_checks": {
+        "same_train_rows": true,
+        "same_test_rows": true,
+        "same_input_feature_count": true,
+        "same_encoded_feature_count": true,
+        "same_dummy_baseline": true
+    },
+    "decision_tree": {
+        "accuracy": 0.8728,
+        "precision": 0.3503893214682981,
+        "recall": 0.8583106267029973,
+        "f1_score": 0.4976303317535545,
+        "roc_auc": 0.8879919614705781,
+        "pr_auc": 0.4850286819510572
+    },
+    "svm": {
+        "accuracy": 0.8716,
+        "precision": 0.36012207527975587,
+        "recall": 0.9645776566757494,
+        "f1_score": 0.5244444444444445,
+        "roc_auc": 0.943173337113034,
+        "pr_auc": 0.45756743034232356
+    },
+    "differences_svm_minus_decision_tree": {
+        "accuracy": -0.0011999999999999789,
+        "precision": 0.009732753811457773,
+        "recall": 0.10626702997275206,
+        "f1_score": 0.026814112690890013,
+        "roc_auc": 0.05518137564245584,
+        "pr_auc": -0.02746125160873364
+    },
+    "error_counts": {
+        "decision_tree": {
+            "false_positive": 584,
+            "false_negative": 52
+        },
+        "svm": {
+            "false_positive": 629,
+            "false_negative": 13
+        }
+    },
+    "thai_conclusion": "เลือก SVM ตามเกณฑ์ F1-score ของคลาส Died เพราะมี F1-score และ Recall สูงกว่า และพลาดผู้เสียชีวิตจริงน้อยกว่า Decision Tree แต่ Decision Tree มี PR-AUC สูงกว่าและ False Positive น้อยกว่า"
+}
