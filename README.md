@@ -166,9 +166,13 @@ kaggle-model/
 
 ## Project members
 
-- สมาชิกคนที่ 1 พัฒนาและทดสอบ Decision Tree บน branch `model-1`
-- สมาชิกคนที่ 2 พัฒนาและทดสอบ SVM บน branch `model-2`
-- สมาชิกทั้งสองคนตรวจสอบ Pull Request และสรุปผลร่วมกัน
+| Member | GitHub account | Branch | Responsibility |
+|---|---|---|---|
+| สมาชิกคนที่ 1 | `@nuttawuttabsakul191-dotcom` | `model-1` | Decision Tree และ `decision_tree.py` |
+| สมาชิกคนที่ 2 | `@Panrawoot` | `model-2` | SVM และ `svm.py` |
+
+ไฟล์ `src/preprocess.py` และ `src/evaluate.py` เป็นส่วนกลาง
+หากต้องแก้ไข สมาชิกต้องแจ้งอีกคนและเปิด Pull Request ก่อน merge
 
 ## Git workflow
 
